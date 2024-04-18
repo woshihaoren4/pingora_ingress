@@ -1,5 +1,5 @@
 [package]
-name = "pingora_ingress"
+name = "pingora-ingress"
 version = "0.1.0"
 edition = "2021"
 authors = ["Teshin <1443965173@qq.com>"]
