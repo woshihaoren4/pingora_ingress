@@ -11,6 +11,6 @@ FROM frolvlad/alpine-glibc:latest
 #ENV RUST_LOG warn
 EXPOSE 80 443
 WORKDIR /root/
-COPY --from=build /pingora-ingress/target/release/rust-ingress .
+COPY --from=build /pingora-ingress/target/release/pingora-ingress .
 
 CMD ["./pingora-ingress", "run"]
