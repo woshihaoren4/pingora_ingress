@@ -23,7 +23,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
     
       - name: Build Docker Image
-        run: docker build . --file Dockerfile --tag pingora-ingress-control:$(date +%s)
+        run: docker build . --file Dockerfile --tag wdshihaoren/pingora-ingress:$(date +%s)
  
       - name: Push Docker Image
-        run: docker push pingora-ingress-control:$(date +%s)
+        run: docker push wdshihaoren/pingora-ingress:$(date +%s)
