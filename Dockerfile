@@ -8,7 +8,7 @@ RUN cargo build --release
 
 
 FROM frolvlad/alpine-glibc:latest
-#FROM alpine:latest
+#FROM alpine:latest #ELF存在问题
 #ENV RUST_LOG warn
 EXPOSE 80 443
 WORKDIR /root/
