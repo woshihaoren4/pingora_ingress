@@ -35,13 +35,22 @@ impl WatchIngress {
         if let Some(ref s) = self.selector_labels{
             wc = wc.labels(s)
         };
-        watcher(api,wc)
-            .applied_objects()
-            .default_backoff()
-            .try_for_each(|ing|async move{
-                wd_log::log_info_ln!("ingress->{:?}",ing);
-                Ok(())
-            }).await?;
+        // watcher(api,wc)
+        //     .applied_objects()
+        //     .default_backoff()
+        //     .try_for_each(|ing|async move{
+        //         wd_log::log_info_ln!("ingress->{:?}",ing);
+        //         Ok(())
+        //     }).await?;
+        let mut watch = watcher(api, wc).boxed();
+        #[allow(irrefutable_let_patterns)]
+        while let res = watch.try_next().await {
+            if let Ok(Some(event)) = res{
+                wd_log::log_info_ln!("event-->{:?}",event);
+            }else{
+                wd_log::log_warn_ln!("watch unknown error");
+            }
+        }
         Ok(())
     }
 
