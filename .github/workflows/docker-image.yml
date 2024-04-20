@@ -23,7 +23,11 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
     
       - name: Build Docker Image
-        run: docker build . --file Dockerfile --tag wdshihaoren/pingora-ingress:$(echo ${{ github.event.commits[0].id}} | cut -c 0-7) 
+        run: |
+          fullCommit="${{ github.event.commits[0].id }}" && \
+          docker build . --file Dockerfile --tag wdshihaoren/pingora-ingress:"$(fullCommit: 0:7)" 
  
       - name: Push Docker Image
-        run: docker push wdshihaoren/pingora-ingress:$(echo ${{ github.event.commits[0].id}} | cut -c 0-7)
+        run: |
+          fullCommit="${{ github.event.commits[0].id }}" && \
+          docker push wdshihaoren/pingora-ingress:"$(fullCommit: 0:7)" 
