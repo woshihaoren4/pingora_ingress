@@ -7,7 +7,8 @@ COPY . .
 RUN cargo build --release
 
 
-FROM frolvlad/alpine-glibc:latest
+#FROM frolvlad/alpine-glibc:latest
+FROM alpine:latest
 #ENV RUST_LOG warn
 EXPOSE 80 443
 WORKDIR /root/
