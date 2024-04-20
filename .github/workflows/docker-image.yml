@@ -25,9 +25,9 @@ jobs:
       - name: Build Docker Image
         run: |
           fullCommit="${{ github.event.commits[0].id }}" && \
-          docker build . --file Dockerfile --tag wdshihaoren/pingora-ingress:"${fullCommit: 0:7}" 
+          docker build . --file Dockerfile --tag wdshihaoren/pingora-ingress:"${fullCommit: 0:8}" 
  
       - name: Push Docker Image
         run: |
           fullCommit="${{ github.event.commits[0].id }}" && \
-          docker push wdshihaoren/pingora-ingress:"${fullCommit: 0:7}" 
+          docker push wdshihaoren/pingora-ingress:"${fullCommit: 0:8}" 
