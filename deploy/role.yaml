@@ -1,0 +1,37 @@
+# 创建sa账户
+# kubectl create  serviceaccount ring-sa
+# kubectl get sa ring-sa
+# kubectl describe sa ring-sa
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: ring-sa
+---
+
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: ring-clu-role
+rules:
+  - apiGroups: [""]
+    resources: ["services","events"]
+    verbs: ["get","watch","list"]
+  - apiGroups: ["networking.k8s.io"]
+    resources: ["ingresses","ingresses/status","ingressclasses"]
+    verbs: ["get","watch","list"]
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: ring-clu-role-bind
+subjects:
+  - kind: ServiceAccount
+    name: ring-sa
+    namespace: qa
+    # apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: ring-clu-role
+  apiGroup: rbac.authorization.k8s.io

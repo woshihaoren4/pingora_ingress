@@ -36,7 +36,7 @@ linker = "x86_64-linux-musl-gcc"'
   echo "docker build success image:$tag"
   docker_push_cmd="docker push $tag"
   echo $docker_push_cmd
-  ${build_cmd}
+  ${docker_push_cmd}
 
   echo "docker push success"
 }
