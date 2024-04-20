@@ -10,9 +10,9 @@ license = "Apache-2.0"
 readme = "README.md"
 
 [dependencies]
-wd_log = "0.3.0"
+#wd_log = "0.3.0"
 #wd_tools = {version = "0.12",features = ["point-free"]}
-tokio = {version = "1",features = ["full"]}
+#tokio = {version = "1",features = ["full"]}
 #kube = { version = "0.90.0", features = ["runtime", "derive"] }
 #k8s-openapi = { version = "0.21.1", features = ["v1_24"] }
 #anyhow = "1.0.82"
