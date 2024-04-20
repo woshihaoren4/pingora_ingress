@@ -7,7 +7,7 @@ COPY . .
 RUN cargo build --release
 
 
-FROM frolvlad/alpine-glibc:latest
+FROM frolvlad/alpine-glibc:alpine-3.11
 #FROM alpine:latest #ELF存在问题
 #ENV RUST_LOG warn
 EXPOSE 80 443
