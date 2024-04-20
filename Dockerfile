@@ -1,4 +1,4 @@
-FROM rust:1.75 as build
+FROM rust:1.75.0-alpine3.19 as build
 WORKDIR /pingora-ingress
 #COPY build.toml .cargo/config.toml
 #COPY vendor vendor
@@ -7,8 +7,8 @@ COPY . .
 RUN cargo build --release
 
 
-FROM frolvlad/alpine-glibc:alpine-3_glibc-2.34
-#FROM alpine:latest #ELF存在问题
+#FROM frolvlad/alpine-glibc:alpine-3_glibc-2.34
+FROM alpine:3.19
 #ENV RUST_LOG warn
 EXPOSE 80 443
 WORKDIR /root/
