@@ -4,7 +4,7 @@ WORKDIR /pingora-ingress
 #COPY vendor vendor
 #COPY Cargo.toml Cargo.lock ./
 COPY . .
-RUN cargo build --release --target aarch64-unknown-linux-musl
+RUN cargo build --release
 
 
 #FROM frolvlad/alpine-glibc:alpine-3_glibc-2.34
