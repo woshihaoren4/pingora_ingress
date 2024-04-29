@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    control-class: pingora
+  name: pingora-ingress
+  namespace: qa
+spec:
+  ingressClassName: pingora
+  rules:
+    - host: test.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: echo-server-cluster-src
+                port:
+                  number: 6789
+            path: /api/v1
+            pathType: Prefix
