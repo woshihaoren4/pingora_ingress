@@ -1,11 +1,9 @@
 mod pkg;
+mod infra;
+mod service;
 
-use pkg::*;
-
-#[tokio::main]
-async fn main(){
+fn main(){
     wd_log::log_info_ln!("start work...");
-    ingress::WatchIngress::default()
-        .add_label_selector("control-class","pingora")
-        .start_watch().await.unwrap();
+    service::start_pingora();
+    wd_log::log_info_ln!("application over!!!");
 }

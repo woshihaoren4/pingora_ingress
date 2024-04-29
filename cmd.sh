@@ -12,6 +12,9 @@ linker = "x86_64-linux-musl-gcc"'
   echo "$cargo_config_content" > .cargo/config.toml
   echo -e "write cargo config file :\n<---$cargo_config_content\n<---"
 
+  echo "clean bin file:rm target/x86_64-unknown-linux-musl/release/pingora-ingress"
+  rm target/x86_64-unknown-linux-musl/release/pingora-ingress
+
   compile_cmd="cargo build --release --target=x86_64-unknown-linux-musl"
   echo $compile_cmd
   ${compile_cmd}
@@ -44,6 +47,9 @@ linker = "x86_64-linux-musl-gcc"'
 case $1 in
 docker)
   build_docker_image "$@"
+  ;;
+run)
+  cargo run "$@"
   ;;
 esac
 

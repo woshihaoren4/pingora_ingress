@@ -15,7 +15,7 @@ metadata:
   name: ring-clu-role
 rules:
   - apiGroups: [""]
-    resources: ["services","events"]
+    resources: ["services","events","pods"]
     verbs: ["get","watch","list"]
   - apiGroups: ["networking.k8s.io"]
     resources: ["ingresses","ingresses/status","ingressclasses"]
