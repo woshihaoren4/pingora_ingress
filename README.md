@@ -3,12 +3,8 @@
 Use the pingora framework as the gateway to k8s. It monitors changes to ingress and updates automatically.
 
 ## Quick start
-1. Create ServiceAccount:`ring-sa`,cmd:`kubectl apply -f ./deploy/role.yaml -n qa`.
-2. Create Deployment,docker:`wdshihaoren/pingora-ingress:v0.1.0`
-3. Create Ingress
-4. Test
 
-[Reference blog]()
+[Reference blog](https://juejin.cn/post/7363484574158815269)
 
 ## Plan
 
